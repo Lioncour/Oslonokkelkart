@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oslonøkkelen tidslinjekart</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-xwE/HOIj5M8LGe3f3lNK0ypQbZ3ZX3w4o4Jk3Ee0pFk="
+      crossorigin=""
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="map" role="application" aria-label="Tidslinjekart over Oslo"></div>
+
+    <div id="brand-mark">oslonøkkelen</div>
+
+    <div id="location-count-container">
+      <div id="location-count" role="status" aria-live="polite">0</div>
+      <div id="category-counts" aria-live="polite"></div>
+    </div>
+
+    <section id="timeline-panel" aria-label="Tidsfilter">
+      <div class="timeline-meta">
+        <div>
+          <span class="meta-label">Aktive per</span>
+          <span id="date-display" class="meta-value">—</span>
+        </div>
+        <div class="visible-summary" role="status" aria-live="polite">
+          <span class="summary-text">Viser</span>
+          <span class="summary-count" id="visible-summary-count">0</span>
+          <span class="summary-text">av</span>
+          <span class="summary-total" id="visible-summary-total">0</span>
+          <span class="summary-text">steder</span>
+        </div>
+      </div>
+      <input
+        type="range"
+        id="timeline-slider"
+        min="0"
+        max="0"
+        value="0"
+        aria-label="Tidslinje"
+      />
+    </section>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-o9N1j8Mk3Pm4JILj9m6HLDKZmG8jWyZkRl6ChZ8JxkE="
+      crossorigin=""
+    ></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
+
