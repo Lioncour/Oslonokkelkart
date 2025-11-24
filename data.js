@@ -680,3 +680,6 @@ const LOCATIONS_DATA = [
     "category": "Miljøstasjon for farlig avfall"
   }
 ];
+if (typeof window !== 'undefined') {
+  window.LOCATIONS_DATA = LOCATIONS_DATA;
+}

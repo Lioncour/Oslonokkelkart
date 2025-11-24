@@ -110,12 +110,15 @@ def extract_locations_from_xml(xml_file: Path) -> list[dict]:
 
 def write_data_js(locations: list[dict], output_path: Path) -> None:
     payload = json.dumps(locations, ensure_ascii=False, indent=2)
-    output = (
-        "// Auto-generated from data.xml. Contains only name, coordinates, date and "
-        "category.\n"
-        "const LOCATIONS_DATA = "
-        f"{payload};\n"
-    )
+    output_lines = [
+        "// Auto-generated from data.xml. Contains only name, coordinates, date and category.",
+        "const LOCATIONS_DATA = " + payload + ";",
+        "if (typeof window !== 'undefined') {",
+        "  window.LOCATIONS_DATA = LOCATIONS_DATA;",
+        "}",
+        "",
+    ]
+    output = "\n".join(output_lines)
     output_path.write_text(output, encoding="utf-8")
 
 

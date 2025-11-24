@@ -181,13 +181,24 @@ function buildFallbackDataset() {
 }
 
 async function loadData() {
-  const hasData =
-    typeof window.LOCATIONS_DATA !== 'undefined' &&
+  const hasWindowData =
+    typeof window !== 'undefined' &&
     Array.isArray(window.LOCATIONS_DATA) &&
     window.LOCATIONS_DATA.length > 0;
 
-  if (hasData) {
-    allItems = window.LOCATIONS_DATA.map((item) => {
+  const hasGlobalConst =
+    typeof LOCATIONS_DATA !== 'undefined' &&
+    Array.isArray(LOCATIONS_DATA) &&
+    LOCATIONS_DATA.length > 0;
+
+  const inputData = hasWindowData
+    ? window.LOCATIONS_DATA
+    : hasGlobalConst
+      ? LOCATIONS_DATA
+      : null;
+
+  if (inputData) {
+    allItems = inputData.map((item) => {
       const dateObj = new Date(item.date);
       if (Number.isNaN(dateObj.getTime())) {
         const fallback = new Date();
