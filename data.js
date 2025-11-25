@@ -39,7 +39,7 @@ const LOCATIONS_DATA = [
     "name": "Sørenga",
     "lat": 59.90322,
     "lng": 10.75598,
-    "date": "2024-03-07",
+    "date": "2019-09-12",
     "category": "Små gjenvinningsstasjoner"
   },
   {

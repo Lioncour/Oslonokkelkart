@@ -25,7 +25,7 @@ MANUAL_DATE_OVERRIDES = {
     "reg-lindeberg": datetime.date.fromisoformat("2024-03-07"),
     "reg-ryen": datetime.date.fromisoformat("2024-03-07"),
     "reg-smestad": datetime.date.fromisoformat("2024-03-07"),
-    "reg-sorenga": datetime.date.fromisoformat("2024-03-07"),
+    "reg-sorenga": datetime.date.fromisoformat("2019-09-12"),
     "reg-trosterud": datetime.date.fromisoformat("2024-03-07"),
     "reg-ulven": datetime.date.fromisoformat("2024-03-07"),
     "haugerudseniorsenter": datetime.date.fromisoformat("2024-03-08"),
