@@ -12,6 +12,84 @@ DATE_PATTERNS = [
     re.compile(r"(\d{4})(\d{2})(\d{2})"),
 ]
 
+MANUAL_DATE_OVERRIDES = {
+    "deichman-fubiak": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-toyen": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-oppsal": datetime.date.fromisoformat("2023-11-08"),
+    "voldslokkaskole": datetime.date.fromisoformat("2023-11-08"),
+    "frognerbydelshusd60": datetime.date.fromisoformat("2023-11-08"),
+    "frognerseniorsenter": datetime.date.fromisoformat("2023-11-08"),
+    "grorudveien-3": datetime.date.fromisoformat("2023-11-08"),
+    "vestlitoppenbarnehage": datetime.date.fromisoformat("2023-11-08"),
+    "frivillighetenshus": datetime.date.fromisoformat("2023-11-08"),
+    "slurpen": datetime.date.fromisoformat("2023-11-08"),
+    "sondrenordstrandbydelshus": datetime.date.fromisoformat("2023-11-08"),
+    "veslestua": datetime.date.fromisoformat("2023-11-08"),
+    "verdenshusethaugenstua": datetime.date.fromisoformat("2023-11-08"),
+    "happyroad": datetime.date.fromisoformat("2023-11-08"),
+    "haugen-skole": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-torshov": datetime.date.fromisoformat("2023-11-08"),
+    "hjelpemiddelformidlingen": datetime.date.fromisoformat("2023-11-08"),
+    "holmenkollennasjonalanlegg": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-stovner": datetime.date.fromisoformat("2023-11-08"),
+    "homansbyennaermiljohus": datetime.date.fromisoformat("2023-11-08"),
+    "deichmanlambertseter": datetime.date.fromisoformat("2023-11-08"),
+    "lindeberg": datetime.date.fromisoformat("2023-11-08"),
+    "loftsrudnaermiljohus": datetime.date.fromisoformat("2023-11-08"),
+    "majorstuenseniorarena": datetime.date.fromisoformat("2023-11-08"),
+    "nedrefossumgard": datetime.date.fromisoformat("2023-11-08"),
+    "nordstrandbydelshus": datetime.date.fromisoformat("2023-11-08"),
+    "origo": datetime.date.fromisoformat("2023-11-08"),
+    "ovrefossumgard": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-majorstuen": datetime.date.fromisoformat("2023-11-08"),
+    "rachel-grepp--nordre-aker": datetime.date.fromisoformat("2023-11-08"),
+    "deichmanroa": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-bler": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-bjerke": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-nydalen": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-nordtvet": datetime.date.fromisoformat("2023-11-08"),
+    "alnabydelshus": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-bjrvika": datetime.date.fromisoformat("2023-11-08"),
+    "bydel-nordre-aker": datetime.date.fromisoformat("2023-11-08"),
+    "deichman-grnerlkka": datetime.date.fromisoformat("2023-11-08"),
+    "slimegardbarnehange": datetime.date.fromisoformat("2023-12-11"),
+    "reg-loren": datetime.date.fromisoformat("2024-03-07"),
+    "reg-bygdoy": datetime.date.fromisoformat("2024-03-07"),
+    "reg-fredensborg": datetime.date.fromisoformat("2024-03-07"),
+    "reg-grefsen": datetime.date.fromisoformat("2024-03-07"),
+    "reg-gronmo": datetime.date.fromisoformat("2024-03-07"),
+    "reg-haraldrud": datetime.date.fromisoformat("2024-03-07"),
+    "reg-lilleaker": datetime.date.fromisoformat("2024-03-07"),
+    "reg-lindeberg": datetime.date.fromisoformat("2024-03-07"),
+    "reg-ryen": datetime.date.fromisoformat("2024-03-07"),
+    "reg-smestad": datetime.date.fromisoformat("2024-03-07"),
+    "reg-sorenga": datetime.date.fromisoformat("2024-03-07"),
+    "reg-trosterud": datetime.date.fromisoformat("2024-03-07"),
+    "reg-ulven": datetime.date.fromisoformat("2024-03-07"),
+    "haugerudseniorsenter": datetime.date.fromisoformat("2024-03-08"),
+    "deichmanholmlia": datetime.date.fromisoformat("2024-05-21"),
+    "holmlianaermijolokale": datetime.date.fromisoformat("2024-06-21"),
+    "reg-bentsehjornet": datetime.date.fromisoformat("2024-09-09"),
+    "reg-vollebekk": datetime.date.fromisoformat("2024-11-27"),
+    "reg-sogn": datetime.date.fromisoformat("2024-11-27"),
+    "reg-oppsal": datetime.date.fromisoformat("2024-12-20"),
+    "bjerke-linderud-senter": datetime.date.fromisoformat("2025-02-21"),
+    "kiosken": datetime.date.fromisoformat("2025-02-25"),
+    "piloten-arena": datetime.date.fromisoformat("2025-02-25"),
+    "frivillighetssentral-boler": datetime.date.fromisoformat("2025-02-25"),
+    "admin_vestreaker_frivilligsent": datetime.date.fromisoformat("2025-04-25"),
+    "trosterudgard": datetime.date.fromisoformat("2025-09-08"),
+    "reg-smedstua": datetime.date.fromisoformat("2025-09-12"),
+    "reg-myrer": datetime.date.fromisoformat("2025-09-17"),
+    "reg-nedre-haugen": datetime.date.fromisoformat("2025-09-25"),
+    "reg-sio-kringsja": datetime.date.fromisoformat("2025-09-25"),
+    "reg-skjonhaug": datetime.date.fromisoformat("2025-10-10"),
+    "reg-skoyenasen": datetime.date.fromisoformat("2025-10-10"),
+    "reg-kalbakken": datetime.date.fromisoformat("2025-10-10"),
+    "reg-lindebergskogen": datetime.date.fromisoformat("2025-10-10"),
+    "ude_bentsebrua": datetime.date.fromisoformat("2025-10-15"),
+    "reg-hoybraten": datetime.date.fromisoformat("2025-10-29"),
+}
 
 def parse_date_from_text(text: str) -> datetime.date | None:
     if not text:
@@ -89,11 +167,13 @@ def extract_locations_from_xml(xml_file: Path) -> list[dict]:
         except ValueError:
             continue
 
+        subject_id = subject.get("id") or ""
         subject_category_id = subject.get("category")
         category_name = category_map.get(subject_category_id, "Ukjent kategori")
 
         fallback_date = fallback_start + datetime.timedelta(days=index * 14)
-        date_value = extract_date(subject, fallback_date)
+        manual_override = MANUAL_DATE_OVERRIDES.get(subject_id)
+        date_value = manual_override or extract_date(subject, fallback_date)
 
         locations.append(
             {
