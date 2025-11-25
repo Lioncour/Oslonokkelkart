@@ -20,6 +20,7 @@ let map;
 let markers = [];
 let allItems = [];
 let startDate = null;
+const TIMELINE_START_DATE = new Date('2019-01-01');
 
 document.addEventListener('DOMContentLoaded', () => {
   loadData().catch((error) => console.error('Failed to load data', error));
@@ -45,12 +46,8 @@ function initTimeline() {
   const slider = document.getElementById('timeline-slider');
   if (!slider) return;
 
-  const earliest = allItems.reduce(
-    (min, item) => (item.dateObj < min ? item.dateObj : min),
-    allItems[0].dateObj
-  );
-
-  startDate = normalizeDate(earliest);
+  const normalizedStart = normalizeDate(TIMELINE_START_DATE);
+  startDate = normalizedStart;
   const today = normalizeDate(new Date());
   const totalDays = Math.max(
     0,
