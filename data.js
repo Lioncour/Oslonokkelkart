@@ -4,35 +4,35 @@ const LOCATIONS_DATA = [
     "name": "Lindeberglokalet",
     "lat": 59.93253,
     "lng": 10.88201,
-    "date": "2023-11-08",
+    "date": "2023-01-15",
     "category": "Bydelslokaler"
   },
   {
     "name": "Deichman Furuset",
     "lat": 59.94095,
     "lng": 10.89707,
-    "date": "2023-11-08",
+    "date": "2024-04-11",
     "category": "Bibliotek"
   },
   {
     "name": "Deichman Tøyen",
     "lat": 59.91412,
     "lng": 10.77555,
-    "date": "2023-11-08",
+    "date": "2021-11-22",
     "category": "Bibliotek"
   },
   {
     "name": "Deichman Majorstuen",
     "lat": 59.930637,
     "lng": 10.716504,
-    "date": "2023-11-08",
+    "date": "2021-09-27",
     "category": "Bibliotek"
   },
   {
     "name": "Deichman Stovner",
     "lat": 59.96159,
     "lng": 10.92604,
-    "date": "2023-11-08",
+    "date": "2021-09-26",
     "category": "Bibliotek"
   },
   {
@@ -95,70 +95,70 @@ const LOCATIONS_DATA = [
     "name": "Deichman Bjerke",
     "lat": 59.942452,
     "lng": 10.812034,
-    "date": "2023-11-08",
+    "date": "2020-01-08",
     "category": "Bibliotek"
   },
   {
     "name": "Rachel Grepp – Nordre Aker",
     "lat": 59.95303,
     "lng": 10.76051,
-    "date": "2023-11-08",
+    "date": "2022-03-14",
     "category": "Bydelslokaler"
   },
   {
     "name": "Deichman Oppsal",
     "lat": 59.894207,
     "lng": 10.841967,
-    "date": "2023-11-08",
+    "date": "2023-10-18",
     "category": "Bibliotek"
   },
   {
     "name": "Deichman Nordtvet",
     "lat": 59.95126,
     "lng": 10.87405,
-    "date": "2023-11-08",
+    "date": "2024-04-13",
     "category": "Bibliotek"
   },
   {
     "name": "Deichman Grünerløkka",
     "lat": 59.9208,
     "lng": 10.76024,
-    "date": "2023-11-08",
+    "date": "2024-07-06",
     "category": "Bibliotek"
   },
   {
     "name": "Slurpen",
     "lat": 59.919288,
     "lng": 10.767835,
-    "date": "2023-11-08",
+    "date": "2021-04-06",
     "category": "Bydelslokaler"
   },
   {
     "name": "Deichman Nydalen",
     "lat": 59.95025,
     "lng": 10.76258,
-    "date": "2023-11-08",
+    "date": "2020-10-06",
     "category": "Bibliotek"
   },
   {
     "name": "Deichman Bøler",
     "lat": 59.88258,
     "lng": 10.84403,
-    "date": "2023-11-08",
+    "date": "2023-08-01",
     "category": "Bibliotek"
   },
   {
     "name": "Deichman Torshov",
     "lat": 59.93774,
     "lng": 10.76785,
-    "date": "2023-11-08",
+    "date": "2023-01-17",
     "category": "Bibliotek"
   },
   {
     "name": "24T Innlevering Deichman Bjørvika",
     "lat": 59.9087,
     "lng": 10.75328,
-    "date": "2023-11-08",
+    "date": "2021-04-14",
     "category": "Bibliotek"
   },
   {
@@ -172,21 +172,21 @@ const LOCATIONS_DATA = [
     "name": "Bydel Nordre Aker",
     "lat": 59.94851,
     "lng": 10.76454,
-    "date": "2023-11-08",
+    "date": "2021-12-15",
     "category": "Bydelslokaler"
   },
   {
     "name": "Haugen skole",
     "lat": 59.94764,
     "lng": 10.90538,
-    "date": "2023-11-08",
+    "date": "2021-03-01",
     "category": "Skole"
   },
   {
     "name": "HappyRoad",
     "lat": 59.872702,
     "lng": 10.811474,
-    "date": "2023-11-08",
+    "date": "2020-02-27",
     "category": "Debug"
   },
   {
@@ -200,14 +200,14 @@ const LOCATIONS_DATA = [
     "name": "Origos endelige lokaler Glasmagasinet",
     "lat": 59.913406,
     "lng": 10.74569,
-    "date": "2023-11-08",
+    "date": "2021-02-03",
     "category": "Arbeidsplass"
   },
   {
     "name": "Hjelpemiddel­formidlingen",
     "lat": 59.92747,
     "lng": 10.8171,
-    "date": "2023-11-08",
+    "date": "2020-10-23",
     "category": "Hjelpemidler"
   },
   {
@@ -221,7 +221,7 @@ const LOCATIONS_DATA = [
     "name": "Sletteløkka Grendehus",
     "lat": 59.94592,
     "lng": 10.8443,
-    "date": "2023-11-08",
+    "date": "2020-12-20",
     "category": "Bydelslokaler"
   },
   {
@@ -235,7 +235,7 @@ const LOCATIONS_DATA = [
     "name": "Deichman Røa",
     "lat": 59.946448,
     "lng": 10.643295,
-    "date": "2023-11-08",
+    "date": "2021-09-30",
     "category": "Bibliotek"
   },
   {
@@ -249,7 +249,7 @@ const LOCATIONS_DATA = [
     "name": "Øvre Fossum gård",
     "lat": 59.95925,
     "lng": 10.92709,
-    "date": "2023-11-08",
+    "date": "2023-09-21",
     "category": "Bydelslokaler"
   },
   {
@@ -263,28 +263,28 @@ const LOCATIONS_DATA = [
     "name": "Alna Bydelshus",
     "lat": 59.94101,
     "lng": 10.8976,
-    "date": "2023-11-08",
+    "date": "2022-08-20",
     "category": "Bydelslokaler"
   },
   {
     "name": "Nordstrand Bydelshus",
     "lat": 59.873277,
     "lng": 10.812084,
-    "date": "2023-11-08",
+    "date": "2021-10-30",
     "category": "Bydelslokaler"
   },
   {
     "name": "Søndre Nordstrand Bydelshus",
     "lat": 59.834202,
     "lng": 10.795736,
-    "date": "2023-11-08",
+    "date": "2024-11-24",
     "category": "Bydelslokaler"
   },
   {
     "name": "Holmenkollen nasjonalanlegg",
     "lat": 59.96427,
     "lng": 10.66715,
-    "date": "2023-11-08",
+    "date": "2022-12-19",
     "category": "Idrettsanlegg"
   },
   {
@@ -298,21 +298,21 @@ const LOCATIONS_DATA = [
     "name": "Deichman Lambertseter",
     "lat": 59.87334,
     "lng": 10.81167,
-    "date": "2023-11-08",
+    "date": "2023-04-11",
     "category": "Bibliotek"
   },
   {
     "name": "Majorstuen seniorarena",
     "lat": 59.93071,
     "lng": 10.71478,
-    "date": "2023-11-08",
+    "date": "2023-12-21",
     "category": "Bydelslokaler"
   },
   {
     "name": "Vestlitoppen barnehage",
     "lat": 59.97304,
     "lng": 10.93016,
-    "date": "2023-11-08",
+    "date": "2023-05-30",
     "category": "Barnehager"
   },
   {
@@ -347,56 +347,56 @@ const LOCATIONS_DATA = [
     "name": "Nærmiljøkontoret på Rudshøgda",
     "lat": 59.84513,
     "lng": 10.82618,
-    "date": "2023-11-08",
+    "date": "2022-09-05",
     "category": "Bydelslokaler"
   },
   {
     "name": "Verdenshuset Haugenstua",
     "lat": 59.9523,
     "lng": 10.91076,
-    "date": "2023-11-08",
+    "date": "2020-12-26",
     "category": "Bydelslokaler"
   },
   {
     "name": "Nærmiljøhuset",
     "lat": 59.920586,
     "lng": 10.730076,
-    "date": "2023-11-08",
+    "date": "2023-04-24",
     "category": "Bydelslokaler"
   },
   {
     "name": "Frogner bydelshus D60",
     "lat": 59.912397,
     "lng": 10.712221,
-    "date": "2023-11-08",
+    "date": "2023-03-09",
     "category": "Bydelslokaler"
   },
   {
     "name": "Frogner senior­senter",
     "lat": 59.921256,
     "lng": 10.703427,
-    "date": "2023-11-08",
+    "date": "2020-09-03",
     "category": "Seniorsenter"
   },
   {
     "name": "Grorudveien-3",
     "lat": 59.958888,
     "lng": 10.882349,
-    "date": "2023-11-08",
+    "date": "2021-01-15",
     "category": "Bydelslokaler"
   },
   {
     "name": "Tveten Gård, Veslestua",
     "lat": 59.912949,
     "lng": 10.837265,
-    "date": "2023-11-08",
+    "date": "2024-05-02",
     "category": "Bydelslokaler"
   },
   {
     "name": "Voldsløkka skole",
     "lat": 59.942503,
     "lng": 10.749452,
-    "date": "2023-11-08",
+    "date": "2021-08-07",
     "category": "Skole"
   },
   {
@@ -417,7 +417,7 @@ const LOCATIONS_DATA = [
     "name": "Nedre Fossum Gård",
     "lat": 59.959589,
     "lng": 10.92025,
-    "date": "2023-11-08",
+    "date": "2022-09-16",
     "category": "Bydelslokaler"
   },
   {

@@ -1,4 +1,5 @@
 ﻿import datetime
+import hashlib
 import json
 import re
 import xml.etree.ElementTree as ET
@@ -13,45 +14,6 @@ DATE_PATTERNS = [
 ]
 
 MANUAL_DATE_OVERRIDES = {
-    "deichman-fubiak": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-toyen": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-oppsal": datetime.date.fromisoformat("2023-11-08"),
-    "voldslokkaskole": datetime.date.fromisoformat("2023-11-08"),
-    "frognerbydelshusd60": datetime.date.fromisoformat("2023-11-08"),
-    "frognerseniorsenter": datetime.date.fromisoformat("2023-11-08"),
-    "grorudveien-3": datetime.date.fromisoformat("2023-11-08"),
-    "vestlitoppenbarnehage": datetime.date.fromisoformat("2023-11-08"),
-    "frivillighetenshus": datetime.date.fromisoformat("2023-11-08"),
-    "slurpen": datetime.date.fromisoformat("2023-11-08"),
-    "sondrenordstrandbydelshus": datetime.date.fromisoformat("2023-11-08"),
-    "veslestua": datetime.date.fromisoformat("2023-11-08"),
-    "verdenshusethaugenstua": datetime.date.fromisoformat("2023-11-08"),
-    "happyroad": datetime.date.fromisoformat("2023-11-08"),
-    "haugen-skole": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-torshov": datetime.date.fromisoformat("2023-11-08"),
-    "hjelpemiddelformidlingen": datetime.date.fromisoformat("2023-11-08"),
-    "holmenkollennasjonalanlegg": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-stovner": datetime.date.fromisoformat("2023-11-08"),
-    "homansbyennaermiljohus": datetime.date.fromisoformat("2023-11-08"),
-    "deichmanlambertseter": datetime.date.fromisoformat("2023-11-08"),
-    "lindeberg": datetime.date.fromisoformat("2023-11-08"),
-    "loftsrudnaermiljohus": datetime.date.fromisoformat("2023-11-08"),
-    "majorstuenseniorarena": datetime.date.fromisoformat("2023-11-08"),
-    "nedrefossumgard": datetime.date.fromisoformat("2023-11-08"),
-    "nordstrandbydelshus": datetime.date.fromisoformat("2023-11-08"),
-    "origo": datetime.date.fromisoformat("2023-11-08"),
-    "ovrefossumgard": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-majorstuen": datetime.date.fromisoformat("2023-11-08"),
-    "rachel-grepp--nordre-aker": datetime.date.fromisoformat("2023-11-08"),
-    "deichmanroa": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-bler": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-bjerke": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-nydalen": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-nordtvet": datetime.date.fromisoformat("2023-11-08"),
-    "alnabydelshus": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-bjrvika": datetime.date.fromisoformat("2023-11-08"),
-    "bydel-nordre-aker": datetime.date.fromisoformat("2023-11-08"),
-    "deichman-grnerlkka": datetime.date.fromisoformat("2023-11-08"),
     "slimegardbarnehange": datetime.date.fromisoformat("2023-12-11"),
     "reg-loren": datetime.date.fromisoformat("2024-03-07"),
     "reg-bygdoy": datetime.date.fromisoformat("2024-03-07"),
@@ -90,6 +52,64 @@ MANUAL_DATE_OVERRIDES = {
     "ude_bentsebrua": datetime.date.fromisoformat("2025-10-15"),
     "reg-hoybraten": datetime.date.fromisoformat("2025-10-29"),
 }
+
+RANDOMIZED_SUBJECT_IDS = {
+    "deichman-fubiak",
+    "deichman-toyen",
+    "deichman-oppsal",
+    "voldslokkaskole",
+    "frognerbydelshusd60",
+    "frognerseniorsenter",
+    "grorudveien-3",
+    "vestlitoppenbarnehage",
+    "frivillighetenshus",
+    "slurpen",
+    "sondrenordstrandbydelshus",
+    "veslestua",
+    "verdenshusethaugenstua",
+    "happyroad",
+    "haugen-skole",
+    "deichman-torshov",
+    "hjelpemiddelformidlingen",
+    "holmenkollennasjonalanlegg",
+    "deichman-stovner",
+    "homansbyennaermiljohus",
+    "deichmanlambertseter",
+    "lindeberg",
+    "loftsrudnaermiljohus",
+    "majorstuenseniorarena",
+    "nedrefossumgard",
+    "nordstrandbydelshus",
+    "origo",
+    "ovrefossumgard",
+    "deichman-majorstuen",
+    "rachel-grepp--nordre-aker",
+    "deichmanroa",
+    "deichman-bler",
+    "deichman-bjerke",
+    "deichman-nydalen",
+    "deichman-nordtvet",
+    "alnabydelshus",
+    "deichman-bjrvika",
+    "bydel-nordre-aker",
+    "deichman-grnerlkka",
+}
+
+RANDOM_DATE_START = datetime.date(2020, 1, 1)
+RANDOM_DATE_END = datetime.date(2024, 12, 31)
+
+
+def pseudo_random_date(subject_id: str) -> datetime.date:
+    """Return a deterministic pseudo-random date within the configured range."""
+    if not subject_id:
+        return RANDOM_DATE_START
+
+    span_days = (RANDOM_DATE_END - RANDOM_DATE_START).days
+    digest = hashlib.sha256(subject_id.encode("utf-8")).digest()
+    value = int.from_bytes(digest[:8], "big")
+    offset = value % (span_days + 1)
+    return RANDOM_DATE_START + datetime.timedelta(days=offset)
+
 
 def parse_date_from_text(text: str) -> datetime.date | None:
     if not text:
@@ -172,8 +192,11 @@ def extract_locations_from_xml(xml_file: Path) -> list[dict]:
         category_name = category_map.get(subject_category_id, "Ukjent kategori")
 
         fallback_date = fallback_start + datetime.timedelta(days=index * 14)
-        manual_override = MANUAL_DATE_OVERRIDES.get(subject_id)
-        date_value = manual_override or extract_date(subject, fallback_date)
+        if subject_id in RANDOMIZED_SUBJECT_IDS:
+            date_value = pseudo_random_date(subject_id)
+        else:
+            manual_override = MANUAL_DATE_OVERRIDES.get(subject_id)
+            date_value = manual_override or extract_date(subject, fallback_date)
 
         locations.append(
             {
