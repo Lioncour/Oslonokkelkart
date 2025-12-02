@@ -58,53 +58,11 @@ function initTimeline() {
   slider.max = totalDays;
   slider.value = totalDays;
 
-  // Update slider fill and bubble position
-  function updateSliderVisuals() {
-    const value = Number(slider.value);
-    const min = Number(slider.min);
-    const max = Number(slider.max);
-    const percent = max > 0 ? ((value - min) / (max - min)) * 100 : 0;
-    
-    const bubble = document.getElementById('slider-value-bubble');
-    const fill = document.getElementById('slider-fill');
-    const indicator = document.getElementById('slider-indicator-line');
-    const container = slider.closest('.slider-container');
-    
-    if (container) {
-      const sliderWidth = slider.offsetWidth;
-      const position = (percent / 100) * sliderWidth;
-      
-      // Update fill width
-      if (fill) {
-        fill.style.width = `${position}px`;
-      }
-      
-      // Update bubble and indicator position
-      if (bubble) {
-        bubble.style.left = `${position}px`;
-      }
-      
-      if (indicator) {
-        indicator.style.left = `${position}px`;
-      }
-      
-      // Update bubble text with date
-      const selectedDate = dateFromSliderValue(value);
-      if (bubble) {
-        bubble.textContent = formatDateShort(selectedDate);
-      }
-    }
-  }
-
   slider.addEventListener('input', () => {
     const selectedDate = dateFromSliderValue(Number(slider.value));
     updateDateDisplay(selectedDate);
     updateMapMarkers(selectedDate);
-    updateSliderVisuals();
   });
-
-  // Initial update
-  updateSliderVisuals();
 }
 
 function normalizeDate(date) {
@@ -125,13 +83,6 @@ function formatDate(date) {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
-  });
-}
-
-function formatDateShort(date) {
-  return date.toLocaleDateString('no-NO', {
-    day: 'numeric',
-    month: 'short',
   });
 }
 
@@ -275,37 +226,4 @@ async function loadData() {
   const currentDate = dateFromSliderValue(Number(slider?.value || 0));
   updateDateDisplay(currentDate);
   updateMapMarkers(currentDate);
-  
-  // Update slider visuals after initial load
-  if (slider) {
-    setTimeout(() => {
-      const value = Number(slider.value);
-      const min = Number(slider.min);
-      const max = Number(slider.max);
-      const percent = max > 0 ? ((value - min) / (max - min)) * 100 : 0;
-      
-      const bubble = document.getElementById('slider-value-bubble');
-      const fill = document.getElementById('slider-fill');
-      const indicator = document.getElementById('slider-indicator-line');
-      const container = slider.closest('.slider-container');
-      
-      if (container) {
-        const sliderWidth = slider.offsetWidth;
-        const position = (percent / 100) * sliderWidth;
-        
-        if (fill) {
-          fill.style.width = `${position}px`;
-        }
-        
-        if (bubble) {
-          bubble.style.left = `${position}px`;
-          bubble.textContent = formatDateShort(currentDate);
-        }
-        
-        if (indicator) {
-          indicator.style.left = `${position}px`;
-        }
-      }
-    }, 100);
-  }
 }
