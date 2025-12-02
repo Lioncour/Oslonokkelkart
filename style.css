@@ -144,46 +144,166 @@ body {
   font-weight: 800;
 }
 
+.slider-container {
+  position: relative;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+/* Track background with rounded ends and dots */
+.slider-container::before {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: var(--bg-surface);
+  border: 3px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  z-index: 1;
+}
+
+/* Left dot */
+.slider-container::after {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--border);
+  border-radius: 50%;
+  z-index: 2;
+  transform: translateY(50%);
+  margin-bottom: 6px;
+}
+
+/* Right dot - using a separate element */
+.slider-container {
+  --right-dot-left: calc(100% + 3px);
+}
+
 #timeline-slider {
   -webkit-appearance: none;
   width: 100%;
   background: transparent;
+  position: relative;
+  z-index: 3;
+  height: 12px;
+  margin: 0;
+  padding: 0;
 }
 
 #timeline-slider:focus {
   outline: none;
 }
 
+/* Track styling - transparent, we use container background */
 #timeline-slider::-webkit-slider-runnable-track {
-  height: 10px;
-  background: var(--accent-yellow);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  height: 12px;
+  background: transparent;
+  border: none;
 }
 
+/* Thumb - invisible but functional */
 #timeline-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 26px;
-  height: 26px;
-  background: var(--accent-yellow-dark);
-  border: 3px solid var(--border);
-  margin-top: -9px;
+  width: 0;
+  height: 12px;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  position: relative;
 }
 
+/* Mozilla Firefox track */
 #timeline-slider::-moz-range-track {
-  height: 10px;
-  background: var(--accent-yellow);
-  border: 3px solid var(--border);
-  box-shadow: var(--shadow-sm);
+  height: 12px;
+  background: transparent;
+  border: none;
 }
 
 #timeline-slider::-moz-range-thumb {
-  width: 26px;
-  height: 26px;
-  background: var(--accent-yellow-dark);
-  border: 3px solid var(--border);
+  width: 0;
+  height: 12px;
+  background: transparent;
+  border: none;
   cursor: pointer;
+}
+
+/* Filled portion overlay */
+.slider-fill {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  height: 12px;
+  background: var(--accent-yellow);
+  border: 3px solid var(--border);
+  border-radius: 20px;
+  z-index: 2;
+  pointer-events: none;
+  transition: width 0.1s ease-out;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Vertical line indicator */
+.slider-indicator-line {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 4px;
+  height: 36px;
+  background: var(--accent-yellow);
+  border: 2px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transform: translateX(-50%);
+  z-index: 4;
+  pointer-events: none;
+  transition: left 0.1s ease-out;
+  margin-bottom: 12px;
+}
+
+/* Value bubble */
+.slider-value-bubble {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  background: var(--bg-card);
+  border: 3px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-md);
+  z-index: 5;
+  pointer-events: none;
+  transition: left 0.1s ease-out;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Right dot */
+.slider-right-dot {
+  position: absolute;
+  bottom: 20px;
+  right: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--border);
+  border-radius: 50%;
+  z-index: 2;
+  transform: translateY(50%);
+  margin-bottom: 6px;
 }
 
 .leaflet-control-attribution {

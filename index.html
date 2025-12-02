@@ -42,14 +42,20 @@
           <span class="summary-text">steder</span>
         </div>
       </div>
-      <input
-        type="range"
-        id="timeline-slider"
-        min="0"
-        max="0"
-        value="0"
-        aria-label="Tidslinje"
-      />
+      <div class="slider-container">
+        <div class="slider-fill" id="slider-fill"></div>
+        <div class="slider-indicator-line" id="slider-indicator-line"></div>
+        <div class="slider-right-dot"></div>
+        <input
+          type="range"
+          id="timeline-slider"
+          min="0"
+          max="0"
+          value="0"
+          aria-label="Tidslinje"
+        />
+        <div id="slider-value-bubble" class="slider-value-bubble">—</div>
+      </div>
     </section>
 
     <script
